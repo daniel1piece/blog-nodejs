@@ -9,3 +9,28 @@ export const getCategoryById = async(id) => {
      const [rows] = await pool.query("SELECT * FROM categorias WHERE id = ?;", [id]);
      return rows[0];
 } 
+
+export const createCategory = async ({ nombre }) => {
+    const [result] = await pool.query(
+        'INSERT INTO categorias(nombre) values (?);',
+        [nombre]
+    );
+    return {id: result.insertId, nombre};
+}
+                                    // id, {field to update}
+export const updateCategory = async (id, { nombre }) =>{
+    const category = await pool.query(
+        'UPDATE categorias SET nombre =? WHERE id = ?;',
+        [nombre, id]
+    );
+
+    return { category };
+}
+
+export const deleteCategory = async ( id ) => {
+    const category = await pool.query(
+        'DELETE FROM catgorias WHERE id = ?',
+        [id]
+    );
+    return {message: "Categori eliminada"};
+}
