@@ -1,5 +1,26 @@
+-ACTIVIDAD 1 en Node.js
 Crear la tabla comentario en la base de datos blogdb
 Crear controlador CRUD con los comentarios
 Crear las interaciones de la base de datos en el modelo
 Crear las rutas necesarias para los comentarios.
 Minmo debe ser un crud para la tabla comentarios. 
+
+- ACTIVIDAD 2 en Node.js
+(Favoritos, likes o me encantas)
+Crear la tabla favoritos en la base de datos blogdb
+Crear controlador CRUD con los favoritos
+Crear las interaciones de la base de datos en el modelo
+Crear las rutas necesarias para los favoritos.
+Minmo debe ser un crud para la tabla favoritos. 
+
+favoritos sql:
+USE blogdb;
+
+CREATE TABLE favoritos (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    conteo_favoritos BIGINT DEFAULT 0 NOT NULL,
+    id_usuario BIGINT,
+    id_comentario BIGINT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_comentario) REFERENCES comentarios(id)
+ );
