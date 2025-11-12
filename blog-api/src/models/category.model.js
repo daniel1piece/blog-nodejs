@@ -32,5 +32,5 @@ export const deleteCategory = async ( id ) => {
         'DELETE FROM catgorias WHERE id = ?',
         [id]
     );
-    return {message: "Categori eliminada"};
+    return {message: "Categoria eliminada"};
 }
