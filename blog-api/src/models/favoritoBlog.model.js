@@ -1,6 +1,6 @@
 import pool from "../config/database.js";
 
-export const getFavoritosBlogs = async () => {
+export const getAllFavoritosBlogs = async () => {
     const [rows] = await pool.query(`
             SELECT * 
             FROM favoritos_blogs;
@@ -28,7 +28,7 @@ export const createFavoritoBlog = async ( favoritoBlog ) => {
 }
 
 export const updateFavoritoBlog = async ( id, body ) => {
-    const [favorito] = body;
+    const {favorito} = body;
     const [result] = await pool.query (`
             UPDATE favoritos_blogs
             SET favorito = ?
@@ -38,9 +38,9 @@ export const updateFavoritoBlog = async ( id, body ) => {
 }
 
 export const deleteFavoritoBlog = async ( id ) =>{
-    const [info] = await pool.query(`
+    const info = await pool.query(`
             DELETE FROM favoritos_blogs
             WHERE id = ?;
         `, [id]);
-    return info[0].affectedRows;
+    return info.affectedRows;
 }
