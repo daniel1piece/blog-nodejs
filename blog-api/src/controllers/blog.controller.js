@@ -17,7 +17,7 @@ export const getBlogs = async (req, res) => {
 
 export const getBlog = async (req, res) => {
     try {
-        const dataBlog = await Blog.getBlog(req.params.id);
+        const dataBlog = await Blog.getBlogById(req.params.id);
         if (!dataBlog) return res.json(404).json({message: "Blog no econtrado."});
         res
             .status(200)
@@ -28,7 +28,7 @@ export const getBlog = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             message: "Error al obtener el blog.",
-            error
+            error: error
         });
     }    
 }

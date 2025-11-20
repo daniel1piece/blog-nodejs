@@ -20,7 +20,7 @@ export const getSubcategoryById = async (id) => {
          s.id,
          s.nombre AS nombre_subcategoria,
          c.nombre AS nombre_categoria
-         FROM suncategorias s
+         FROM subcategorias s
          INNER JOIN categorias c ON s.id_categoria = c.id
          WHERE s.id = ?;`,
          [id]
