@@ -1,10 +1,10 @@
 import express from 'express';
-import { getFavoritosBlogs, getFavoritoBlog, createFavoritoBlog, editFavoritoBlog, removeFavoritoBlog } 
+import { getAllFavoritosBlogs, getFavoritoBlog, createFavoritoBlog, editFavoritoBlog, removeFavoritoBlog } 
 from '../controllers/favoritoBlog.controller.js';
 
 const router = express.Router();
 
-router.get('/', getFavoritosBlogs);
+router.get('/', getAllFavoritosBlogs);
 router.get('/:id', getFavoritoBlog);
 router.post('/', createFavoritoBlog);
 router.put('/:id', editFavoritoBlog);

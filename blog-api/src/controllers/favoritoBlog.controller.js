@@ -1,6 +1,6 @@
 import * as FavoritoBlog from '../models/favoritoBlog.model.js';
 
-const getAllFavoritosBlogs = async (res, req) => {
+export const getAllFavoritosBlogs = async (req, res) => {
     try {        
         const favoritosBlogs = await FavoritoBlog.getFavoritosBlogs();
         res
@@ -20,7 +20,7 @@ const getAllFavoritosBlogs = async (res, req) => {
 
 }
 
-const getFavoritoBlog = async (req, res) => {
+export const getFavoritoBlog = async (req, res) => {
     try {
         const favoritoBlog = await FavoritoBlog.getFavoritoBlog();
         res
@@ -39,7 +39,7 @@ const getFavoritoBlog = async (req, res) => {
     }
 }
 
-const createFavoritoBlog = async (req, res) => {
+export const createFavoritoBlog = async (req, res) => {
     try {
         const favoritoBlog = await FavoritoBlog.createFavoritoBlog(req.body);
         res
@@ -58,7 +58,7 @@ const createFavoritoBlog = async (req, res) => {
     }
 }
 
-const editFavoritoBlog = async(req, res) => {
+export const editFavoritoBlog = async(req, res) => {
     try {
         const favoritoBlog = await FavoritoBlog.updateFavoritoBlog(req.params.id, req.body);
         res
@@ -77,7 +77,7 @@ const editFavoritoBlog = async(req, res) => {
     }
 }
 
-const removeFavoritoBlog = async (req, res) => {
+export const removeFavoritoBlog = async (req, res) => {
     try {
         const info = await FavoritoBlog.deleteFavoritoBlog(req.params.id);
         res
