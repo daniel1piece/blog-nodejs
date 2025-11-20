@@ -14,8 +14,8 @@ export const getAllBlogs = async () => {
          b.created_at
          FROM blogs b
          INNER JOIN usuarios u ON b.id_usuario = u.id
-         INNER JOIN categorias c ON b.id_categoria = c.id
-         INNER JOIN subcategorias s ON b.id_subcategoria = s.id
+         INNER JOIN categorias c ON b.id_categoria = c.i
+         INNER JOIN subcategoria s ON b.id_subcategoria = s.id
          ORDER BY b.created_at DESC;
          `
     );
@@ -37,8 +37,8 @@ export const getBlogById = async (id) => {
          b.created_at
          FROM blogs b
          INNER JOIN usuarios u ON b.id_usuario = u.id
-         INNER JOIN categorias c ON b.id_categoria = c.id
-         INNER JOIN subcategorias s ON b.id_subcategoria = s.id
+         INNER JOIN categorias c ON b.id_categoria = c.i
+         INNER JOIN subcategoria s ON b.id_subcategoria = s.id
          WHERE id = ?;
          `,
          [id]

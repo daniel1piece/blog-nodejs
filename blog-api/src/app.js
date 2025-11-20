@@ -7,7 +7,7 @@ import subcategoryRoutes from './routes/subcategory.routes.js';
 import favoriteRoutes from './routes/favorite.routes.js';
 import blogRoutes from './routes/blog.routes.js';
 import { registerStaticFiles } from './config/staticFiles.js';
-import favoritosBlogsRouter from './routes/favoritoBlog.route.js';
+import favoritoBlogRouter from './routes/favoritoBlog.route.js';
  
 const app = express();
 
@@ -23,6 +23,6 @@ app.use('/api/comentarios', commentRoutes);
 app.use('/api/subcategorias', subcategoryRoutes);
 app.use('/api/favoritos', favoriteRoutes);
 app.use('/api/blogs', blogRoutes);
-app.use('/api/favoritosblogs', favoritosBlogsRouter)
+app.use('/api/favoritosblogs', favoritoBlogRouter)
 
 export default app;

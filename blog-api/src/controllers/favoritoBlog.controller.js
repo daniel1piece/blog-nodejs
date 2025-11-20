@@ -1,8 +1,8 @@
 import * as FavoritoBlog from '../models/favoritoBlog.model.js';
 
-export const getFavoritosBlogs = async (req, res) => {
+const getAllFavoritosBlogs = async (res, req) => {
     try {        
-        const favoritosBlogs = await FavoritoBlog.getAllFavoritosBlogs();
+        const favoritosBlogs = await FavoritoBlog.getFavoritosBlogs();
         res
            .status(200)
            .json({
@@ -20,10 +20,9 @@ export const getFavoritosBlogs = async (req, res) => {
 
 }
 
-export const getFavoritoBlog = async (req, res) => {
+const getFavoritoBlog = async (req, res) => {
     try {
-        const favoritoBlog = await FavoritoBlog.getFavoritoBlog(req.params.id);
-        if (!favoritoBlog) res.status(200).json({message:"No hay ningun favorito en ningun blog."});
+        const favoritoBlog = await FavoritoBlog.getFavoritoBlog();
         res
            .status(200)
            .json({
@@ -40,7 +39,7 @@ export const getFavoritoBlog = async (req, res) => {
     }
 }
 
-export const createFavoritoBlog = async (req, res) => {
+const createFavoritoBlog = async (req, res) => {
     try {
         const favoritoBlog = await FavoritoBlog.createFavoritoBlog(req.body);
         res
@@ -59,7 +58,7 @@ export const createFavoritoBlog = async (req, res) => {
     }
 }
 
-export const editFavoritoBlog = async(req, res) => {
+const editFavoritoBlog = async(req, res) => {
     try {
         const favoritoBlog = await FavoritoBlog.updateFavoritoBlog(req.params.id, req.body);
         res
@@ -78,7 +77,7 @@ export const editFavoritoBlog = async(req, res) => {
     }
 }
 
-export const removeFavoritoBlog = async (req, res) => {
+const removeFavoritoBlog = async (req, res) => {
     try {
         const info = await FavoritoBlog.deleteFavoritoBlog(req.params.id);
         res

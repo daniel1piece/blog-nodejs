@@ -41,6 +41,3 @@ CREATE TABLE favoritos_blogs (
  -- Controladores
  -- Modelos
  -- Rutas
-
- Hacer la validacion de datos requeridos del usuario_id
- 
