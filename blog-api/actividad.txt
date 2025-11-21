@@ -43,3 +43,7 @@ CREATE TABLE favoritos_blogs (
  -- Controladores
  -- Modelos
  -- Rutas
+
+ Leer info about jsonwebtoken
+ Actividad hacer el  modulo de respuestas. Encargarse de responder a los comentarions
+ mv, authentification
