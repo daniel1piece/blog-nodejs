@@ -3,7 +3,7 @@ import pool from '../config/database.js';
 export const  getFavorites = async () => {
     const [favorites] = await pool.query(`
             SELECT * 
-            FROM favoritos;
+            FROM favoritos_comentarios;
         `);
     return favorites;
 }
@@ -11,7 +11,7 @@ export const  getFavorites = async () => {
 export const  getFavorite = async (id) => {
     const [favorites] = await pool.query(`
             SELECT * 
-            FROM favoritos
+            FROM favoritos_comentarios
             WHERE id = ?;
         `,
         [id]
@@ -23,16 +23,17 @@ export const  getFavorite = async (id) => {
 }
 
 export const  createFavorite = async (newFavorite) => {
-
+    console.log(newFavorite)
     const {favorito, id_usuario, id_comentario} = newFavorite;
-
-    const {result} = await pool.query(`
-            INSERT INTO  
-            favoritos(favorito, id_usuario, id_comentario)
-            VALUES (?, ?, ?);
+    
+    const [result] = await pool.query(`
+            INSERT INTO favoritos_comentarios(favorito,id_usuario,id_comentario)
+            VALUES (?,?,?);
         `,
         [favorito,id_usuario, id_comentario]
     );
+
+    console.log(result[0]);
 
     return {
         id:result.insertId,
@@ -43,7 +44,7 @@ export const  createFavorite = async (newFavorite) => {
 export const  updateFavorite = async (id, favorite) => {
     const {favorito} = favorite;
     const result = await pool.query(`
-            UPDATE favoritos
+            UPDATE favoritos_comentarios
             SET favorito = ?
             WHERE id = ?;
         `,
@@ -57,7 +58,7 @@ export const  updateFavorite = async (id, favorite) => {
 
 export const  deleteFavorite = async (id) => {
     const favorite = await pool.query(`
-            DELETE FROM favoritos           
+            DELETE FROM favoritos_comentarios           
             WHERE id = ?;
         `,
         [id]

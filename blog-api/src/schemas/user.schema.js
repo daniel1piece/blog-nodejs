@@ -17,8 +17,8 @@ export const createUserSchema = z.object({
                .regex(/[A-Z]/, 'La contraseña debe tener al menos una letra mayuscula')
                .regex(/[0-9]/, 'La contraseña debe tener al menos una letra numero')
                .regex(/[$%+*-/!#,<>()&@!~.,{}?]/, 'La contraseña debe tener al menos un caracter especial ($,%,+,*,-,/,!,#,<,>,(,),&,@,!,~,.,{,},?,)'),
-   confimPasswod: z
-                  .string('La confirmacion de la contraseñ es obligatoria')
+   confirmPassword: z
+                  .string('La confirmacion de la contraseña es obligatoria')
 
 }) // The below method works to check things on the database
 .superRefine(async (data, ctx)=> {

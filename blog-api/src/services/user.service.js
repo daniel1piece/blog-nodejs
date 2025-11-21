@@ -6,6 +6,6 @@ export const existUser = async (id) => {
 };
 
 export const getUserByEmail = async (email) => {
-  const [rows] = await pool.quer(`SELECT email from usuarios WHERE email = ?`, [email]);
+  const [rows] = await pool.query(`SELECT email from usuarios WHERE email = ?`, [email]);
   return rows[0] || null;
 }

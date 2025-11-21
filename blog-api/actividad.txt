@@ -6,13 +6,15 @@ Crear las rutas necesarias para los comentarios.
 Minmo debe ser un crud para la tabla comentarios. 
 
 - ACTIVIDAD 2 en Node.js
-(Favoritos, likes o me encantas)
+(Favoritos, likes o me encantas) - comentarios
 Crear la tabla favoritos en la base de datos blogdb
 Crear controlador CRUD con los favoritos
 Crear las interaciones de la base de datos en el modelo
 Crear las rutas necesarias para los favoritos.
 Minmo debe ser un crud para la tabla favoritos. 
 
+- ACTIVIDAD 3  implementar favoritos blogs
+- actividad 4 implementar la validacion del backend para la tabalas de arriba
 favoritos sql:
 USE blogdb;
 

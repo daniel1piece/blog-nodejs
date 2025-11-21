@@ -22,7 +22,7 @@ export const getAllFavoritosBlogs = async (req, res) => {
 
 export const getFavoritoBlog = async (req, res) => {
     try {
-        const favoritoBlog = await FavoritoBlog.getFavoritoBlog();
+        const favoritoBlog = await FavoritoBlog.getFavoritoBlog(req.params.id);
         res
            .status(200)
            .json({
