@@ -42,4 +42,24 @@ CREATE TABLE favoritos_blogs (
  -- Crear una table de favoritos de los blogs
  -- Controladores
  -- Modelos
- -- Rutas
+ -- 
+ // create the answers modulo and make all necessary changes on model controller route and data backend validation not jwt needed yet and 
+
+ CREATE TABLE answers_to_blog (
+	id BIGINT PRIMARY KEY,
+    answer TEXT,
+    id_prev_answer INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE blogs_answers_to_blogs (
+	id BIGINT PRIMARY KEY,
+    id_blog BIGINT,
+    id_answers_to_blog BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_blog) REFERENCES blogs(id),
+    FOREIGN KEY (id_answers_to_blog) REFERENCES answers_to_blogs(id)    
+);
