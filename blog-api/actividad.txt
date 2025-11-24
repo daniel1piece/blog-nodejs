@@ -46,11 +46,14 @@ CREATE TABLE favoritos_blogs (
  // create the answers modulo and make all necessary changes on model controller route and data backend validation not jwt needed yet and 
 
  CREATE TABLE answers_to_blog (
-	id BIGINT PRIMARY KEY,
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
     answer TEXT,
-    id_prev_answer INT DEFAULT NULL,
+    id_blog BIGINT,
+    id_user BIGINT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_blog) REFERENCES blogs(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES usuarios(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
